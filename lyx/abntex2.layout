@@ -1,6 +1,7 @@
 #% Não apague a linha abaixo. a configuração depende disto
-#  \DeclareLaTeXClass[abntex2]{abntex2}
-
+#  \DeclareLaTeXClass[abntex2]{book (ABNTeX2)}
+#  %\DeclareLaTeXClass[abntex2]{ABNTeX2 Book}
+#  %\DeclareCategory{Books}
 ## abntex2.layout, v<VERSION> sggranja
 ## Copyright 2012-2013 by abnTeX2 group at http://abntex2.googlecode.com/ 
 ##
@@ -21,8 +22,12 @@
 ##
 ## This work consists of the file abntex2.layout.
 ##
-## Versão de revisão: r 3
-## Última revisão em 3/06/2013
+## Versão de revisão: r 4
+## Última revisão em 09/06/2015
+##
+## 2015.6.09 00h00	sggranja
+##  Modificado o comando Data do Lyx para carregar o comando \olddate do 
+##  abntex2.cls. Isso é necessário para que o comando funcione fora do preâmbulo.
 ##
 ## 2013.6.03 12h46	pfessel
 ##  Adicionei a opção "AlignPossible" para possibilitar a seleção de alinhamento 
@@ -137,6 +142,22 @@ Style Legend
 	Category	ABNTEXTextual
 End
 
+Style Fonte
+	Category			ABNTEXTextual
+	CopyStyle 		Legend
+	OptionalArgs	1
+   LatexName		fonte
+	Font
+		Size			Small
+	EndFont
+End
+
+Style Nota
+	Category		ABNTEXTextual
+	CopyStyle 	Fonte
+	LatexName	nota
+End
+
 Style Epigraph
 	Category	ABNTEXTextual
 End
@@ -188,7 +209,7 @@ End
 
 Style Orientador
 	Category	ABNTEXPreTextual
-LatexType	Command
+	LatexType	Command
 	LatexName	orientador
 	Margin		Static
 	Font
@@ -299,7 +320,7 @@ End
 Style Data
 	Category	ABNTEXPreTextual
 	LatexType	Command
-	LatexName	data
+	LatexName	olddate
 	Align		Center
 	AlignPossible	Center
 	Font
